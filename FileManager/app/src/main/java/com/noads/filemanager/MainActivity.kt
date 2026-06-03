@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.noads.filemanager.ui.FileBrowserScreen
 import com.noads.filemanager.viewmodel.FileBrowserViewModel
+import com.noads.filemanager.ui.theme.FileManagerTheme
 
 class MainActivity : ComponentActivity() {
 
@@ -13,12 +14,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-
-            val vm: FileBrowserViewModel = viewModel()
-
-            FileBrowserScreen(
-                viewModel = vm
-            )
+            FileManagerTheme {
+                val vm: FileBrowserViewModel = viewModel()
+                FileBrowserScreen(
+                    viewModel = vm
+                )
+            }
         }
     }
 }
